@@ -1,5 +1,6 @@
 import SongItem  from "./SongItem";
 // import {useSelector } from "react-redux";
+import '../style/listStyle.css'
 import {selectSong} from '../actions/index'
 import { itemStyle } from "./utility/songItemStyler";
 import { connect } from "react-redux";
@@ -10,7 +11,9 @@ const SongList = (props)=>{
 
     return (
 		<div style={containerStyle}>
-			<h1>List Of Songs</h1>
+			<div className="bg">
+				<h1>List Of Songs</h1>
+			</div>
 			<ul style={listStyle}>
 				{props.songs.map((song, index) => {
 					return (

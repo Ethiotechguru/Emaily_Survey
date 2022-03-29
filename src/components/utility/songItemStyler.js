@@ -17,13 +17,13 @@ export const itemStyle = (s, selected) => {
 export const listStyler = ()=>{
     const listStyle = {
         backgroundColor: "rgb(232,232,232)",
-        width: 100 + "%",
+        width: 90 + "%",
         maxWidth: 1700 + "px",
         display: "flex",
         justifyContent: "center",
         alignItems: "stretch",
         flexWrap: "wrap",
-        
+        margin:'0 auto',
         listStyle: "none",
         padding: "0",
         paddingTop: "20px",
