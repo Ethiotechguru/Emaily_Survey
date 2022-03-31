@@ -1,5 +1,5 @@
-import { createStore } from "redux";
-import { songReducers } from "./songReducer";
+import { createStore, applyMiddleware } from "redux";
+import { reducer } from "./songReducer";
+import thunk from "redux-thunk";
 
-
-export const store = createStore(songReducers)
+export const store = createStore(reducer, applyMiddleware(thunk));

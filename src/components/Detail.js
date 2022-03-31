@@ -1,8 +1,10 @@
-import { connect } from "react-redux";
-
+// import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {listStyler} from "./utility/songItemStyler";
 import {removeSong} from '../actions/index'
-const Detail = ({ song,removeSong}) => {
+const Detail = () => {
+    const song = useSelector((state) => state.selectedSongReducer);
+    const dispatch = useDispatch();
     const { listStyle } = listStyler();
 	const style = {
 		flex: song && song.title ? "100%" : "300px",
@@ -18,16 +20,17 @@ const Detail = ({ song,removeSong}) => {
 	return (
 		<div style={listStyle}>
 			<div style={style}>
-				<span onClick={removeSong}>X</span>
+				<span onClick={() => dispatch(removeSong())}>X</span>
 				<h3>Title: {song.title}</h3>
 				<div>Length: {song.length}</div>
 			</div>
 		</div>
 	);
 };
-const stateToProp = (state) => {
-    return { song: state.selectedSongReducer };
-};
-export default connect(stateToProp,{
-    removeSong,
-})(Detail);
+export default Detail;
+// const stateToProp = (state) => {
+//     return { song: state.selectedSongReducer };
+// };
+// export default connect(stateToProp,{
+//     removeSong,
+// })(Detail);

@@ -7,7 +7,9 @@ function Nav(props) {
 			<span onClick={props.onClick}>
 				<Link to="/">Home</Link>
 			</span>
-
+			<span>
+				<Link to="/posts">Posts</Link>
+			</span>
 			{/* <Link to="/detail">Detail</Link> */}
 		</div>
 	);
