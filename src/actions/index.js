@@ -4,3 +4,9 @@ export const selectSong = (song)=>{
         payload:song,
     }
 }
+export const removeSong = ()=>{
+    return {
+		type: "REMOVE_SONG",
+		payload: null,
+	};
+}

@@ -5,9 +5,12 @@ const songReducer = ()=>{
 }
 
 const selectedSongReducer = (selectedSong=null, action)=>{
+    console.log(action)
     switch (action.type) {
 		case "SELECT_SONG":
 			return action.payload;
+        case 'REMOVE_SONG':
+            return action.payload;
         default:
 			return selectedSong;
 	}

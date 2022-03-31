@@ -1,4 +1,4 @@
-
+// import { connect } from "react-redux";
 const SongItem = (props) => {
 	return (
 		<li
@@ -11,4 +11,4 @@ const SongItem = (props) => {
 	);
 };
 
-export default SongItem;
+export default  SongItem;

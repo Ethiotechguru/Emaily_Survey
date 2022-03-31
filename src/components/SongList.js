@@ -1,40 +1,37 @@
 import SongItem  from "./SongItem";
-// import {useSelector } from "react-redux";
 import '../style/listStyle.css'
 import {selectSong} from '../actions/index'
-import { itemStyle } from "./utility/songItemStyler";
+import { itemStyle, listStyler } from "./utility/songItemStyler";
 import { connect } from "react-redux";
-import { listStyler} from "./utility/songItemStyler";
-const SongList = (props)=>{
-    // const songs = useSelector((state) => state.songReducer);
-    const { listStyle, containerStyle } = listStyler();
+const SongList = ({songs, selected, selectSong,}) => {
 
-    return (
+	const { listStyle, containerStyle } = listStyler();
+	const selectionHandler = (song)=>{
+		selectSong(song)
+	}
+	console.log(selected)
+	return (
 		<div style={containerStyle}>
-			<div className="bg">
-				<h1>List Of Songs</h1>
-			</div>
-			<ul style={listStyle}>
-				{props.songs.map((song, index) => {
+			{!selected&&<ul style={listStyle}>
+				{songs.map((song, index) => {
 					return (
 						<SongItem
 							song={song}
 							key={index}
 							{...song}
-							style={itemStyle(song, props.selected)}
-							onClick={() => props.selectSong(song)}
+							style={itemStyle(song, selected)}
+							onClick={() => selectionHandler(song)}
 						/>
 					);
 				})}
-			</ul>
+			</ul>}
 		</div>
 	);
-
-}
-const myList = state=>{
+};
+const stateToProp = state=>{
     console.log(state);
     return { songs: state.songReducer, selected: state.selectedSongReducer };
 }
-export default connect(myList, {
+export default connect(stateToProp, {
 	selectSong,
 })(SongList);
